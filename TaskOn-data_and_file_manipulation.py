@@ -1,3 +1,4 @@
+import prvdt
 import requests
 import json
 import time
@@ -7,7 +8,7 @@ import time
 url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
 
 # API key for CoinMarketCap
-api_key = 'YOUR_API_KEY'
+api_key = prvdt.my_api_key
 
 # Parameters for the API request
 parameters = {
