@@ -2,6 +2,8 @@ import prvdt
 import requests
 import json
 import time
+import csv
+import os
 
 
 # CoinMarketCap API URL for Matic
@@ -44,3 +46,10 @@ for i in range(60):
     else:
         print('Error: Connection problem')
         break
+    
+# Save the data in a CSV file
+with open('matic_data.csv', 'w', newline='') as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerow(['Symbol', 'Open Timestamp', 'High Timestamp', 'Low Timestamp', 'Close Timestamp'])
+    for row in data:
+        writer.writerow(row)
