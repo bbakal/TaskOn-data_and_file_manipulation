@@ -84,4 +84,7 @@ with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
     smtp.login(sender_email, sender_password)
     smtp.send_message(msg)
 
+# Delete the file
+os.remove('~/Pulpit/matic_data.csv')
+
 
