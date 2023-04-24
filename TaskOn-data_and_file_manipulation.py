@@ -74,4 +74,9 @@ msg['From'] = sender_email
 msg['To'] = recipient_email
 msg.set_content(email_body)
 
+# Attach the file to the email
+with open(file_path, 'rb') as f:
+    file_data = f.read()
+    msg.add_attachment(file_data, maintype='text', subtype='csv', filename=file_name)
+
 
