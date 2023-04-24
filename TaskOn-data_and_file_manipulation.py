@@ -4,6 +4,8 @@ import json
 import time
 import csv
 import os
+from email.message import EmailMessage
+
 
 
 # CoinMarketCap API URL for Matic
@@ -53,3 +55,23 @@ with open('matic_data.csv', 'w', newline='') as csvfile:
     writer.writerow(['Symbol', 'Open Timestamp', 'High Timestamp', 'Low Timestamp', 'Close Timestamp'])
     for row in data:
         writer.writerow(row)
+
+# Set up email parameters
+sender_email = 'your_email_address@example.com'
+sender_password = 'your_email_password'
+recipient_email = 'recipient_email_address@example.com'
+email_subject = 'MATIC Today'
+email_body = "I am sending today's data on the MATIC cryptocurrency."
+
+# Define the file path and name
+file_name = 'matic_data.csv'
+file_path = os.path.expanduser('~/Pulpit/' + file_name)
+
+# Create a message object
+msg = EmailMessage()
+msg['Subject'] = email_subject
+msg['From'] = sender_email
+msg['To'] = recipient_email
+msg.set_content(email_body)
+
+
