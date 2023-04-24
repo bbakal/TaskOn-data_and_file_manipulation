@@ -79,4 +79,9 @@ with open(file_path, 'rb') as f:
     file_data = f.read()
     msg.add_attachment(file_data, maintype='text', subtype='csv', filename=file_name)
 
+# Send the email
+with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+    smtp.login(sender_email, sender_password)
+    smtp.send_message(msg)
+
 
